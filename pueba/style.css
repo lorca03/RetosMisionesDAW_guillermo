@@ -44,3 +44,7 @@ h3 {
 form{
     color: white;
 }
+legend{
+  color: springgreen;
+  font-size: 30px;
+}

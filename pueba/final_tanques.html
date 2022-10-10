@@ -27,84 +27,216 @@
       <div class="row">
         <div class="col">
           <h3>Tanques</h3>
-          <button class="botones" onclick="añadir(this)" name="tanque" type="button">
+          <button
+            class="botones"
+            onclick="añadir(this)"
+            name="tanque"
+            type="button"
+          >
             Añadir tanque
           </button>
-          <button class="botones" onclick="eliminar(this)" name="tanque" type="button">
+          <button
+            class="botones"
+            onclick="eliminar(this)"
+            name="tanque"
+            type="button"
+          >
             Eliminar Tanque
           </button>
-          <button class="botones" onclick="modificar(this)" name="tanque" type="button">
+          <button
+            class="botones"
+            onclick="modificar(this)"
+            name="tanque"
+            type="button"
+          >
             Modificar tanques
           </button>
-          <button class="botones" onclick="visualizar(this)" name="tanque" type="button">
+          <button
+            class="botones"
+            onclick="visualizar(this)"
+            name="tanque"
+            type="button"
+          >
             Visualizar tanques
           </button>
         </div>
         <div class="col">
           <h3>Localidad</h3>
-          <button class="botones" onclick="añadir(this)" name="localidad" type="button">
+          <button
+            class="botones"
+            onclick="añadir(this)"
+            name="localidad"
+            type="button"
+          >
             Añadir localidad
           </button>
-          <button class="botones" onclick="eliminar(this)" name="localidad" type="button">
+          <button
+            class="botones"
+            onclick="eliminar(this)"
+            name="localidad"
+            type="button"
+          >
             Eliminar localidad
           </button>
-          <button class="botones" onclick="modificar(this)" name="localidad" type="button">
+          <button
+            class="botones"
+            onclick="modificar(this)"
+            name="localidad"
+            type="button"
+          >
             Modificar localidad
           </button>
-          <button class="botones" onclick="visualizar(this)" name="localidad" type="button">
+          <button
+            class="botones"
+            onclick="visualizar(this)"
+            name="localidad"
+            type="button"
+          >
             Visualizar localidades
           </button>
         </div>
         <div class="col">
           <h3>Habitante</h3>
-          <button class="botones" onclick="añadir(this)" name="habitante" type="button">
+          <button
+            class="botones"
+            onclick="añadir(this)"
+            name="habitante"
+            type="button"
+          >
             Añadir habitantes
           </button>
-          <button class="botones" onclick="eliminar(this)" name="habitante" type="button">
+          <button
+            class="botones"
+            onclick="eliminar(this)"
+            name="habitante"
+            type="button"
+          >
             Eliminar habitantes
           </button>
-          <button class="botones" onclick="modificar(this)" name="habitante" type="button">
+          <button
+            class="botones"
+            onclick="modificar(this)"
+            name="habitante"
+            type="button"
+          >
             Modificar habitantes
           </button>
-          <button class="botones" onclick="visualizar(this)" name="habitante" type="button">
+          <button
+            class="botones"
+            onclick="visualizar(this)"
+            name="habitante"
+            type="button"
+          >
             Visualizar habitantes
           </button>
         </div>
       </div>
-      <div class="row" id="pantalla" >
-        <div class="col" id="columna" >
-            <form id="añadirTanque" style="display:none;">
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
-              <form id="añadirLocalidad" style="display:none;">
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+      <div class="row" id="pantalla">
+        <div class="col" id="columna">
+<!--Añadir tanque-->
+          <form id="añadirTanque" style="display: none">
+            <legend> <b>Nuevo Tanque</b></legend>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Número</label>
+              <input
+                type="number"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                min="1"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Capacidad</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="exampleInputPassword1"
+                min="1"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Localidad</label
+              >
+              <select class="form-select" aria-label="Default select example">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+<!--Añadir Localidad-->
+          <form id="añadirLocalidad" style="display: none">
+            <legend> <b>Nueva Localidad</b></legend>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Numero de habitantes</label
+              >
+              <input
+                type="number"
+                class="form-control"
+                id="exampleInputPassword1"
+                min="1"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Provincia</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputPassword1"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
+<!--Añadir Habitantes-->
+          <form id="añadirHabitantes" style="display: none">
+            <legend><b>Nuevo Habitante</b> </legend>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Edad</label>
+              <input
+                type="text"
+                class="form-control"
+                id="exampleInputPassword1"
+                min="1"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Localidad</label
+              >
+              <select class="form-select" aria-label="Default select example">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar</button>
+          </form>
         </div>
       </div>
     </div>

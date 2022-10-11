@@ -133,109 +133,73 @@
       </div>
       <div class="row" id="pantalla">
         <div class="col" id="columna">
-<!--Añadir tanque-->
+          <!--Añadir tanque-->
           <form id="añadirTanque" style="display: none">
-            <legend> <b>Nuevo Tanque</b></legend>
+            <legend><b>Nuevo Tanque</b></legend>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Número</label>
+              <label class="form-label">Número</label>
               <input
                 type="number"
                 class="form-control"
-                id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 min="1"
               />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
-                >Capacidad</label
-              >
-              <input
-                type="number"
-                class="form-control"
-                id="exampleInputPassword1"
-                min="1"
-              />
+              <label class="form-label">Capacidad</label>
+              <input type="number" class="form-control" min="1" />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
-                >Localidad</label
-              >
+              <label class="form-label">Localidad</label>
               <select class="form-select" aria-label="Default select example">
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option selected>No hay Localidades</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="button" class="btn btn-primary">Enviar</button>
           </form>
-<!--Añadir Localidad-->
+          <!--Añadir Localidad-->
           <form id="añadirLocalidad" style="display: none">
-            <legend> <b>Nueva Localidad</b></legend>
+            <legend><b>Nueva Localidad</b></legend>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Nombre</label>
+              <label class="form-label">Nombre</label>
               <input
                 type="text"
                 class="form-control"
-                id="exampleInputEmail1"
                 aria-describedby="emailHelp"
               />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
-                >Numero de habitantes</label
-              >
-              <input
-                type="number"
-                class="form-control"
-                id="exampleInputPassword1"
-                min="1"
-              />
+              <label class="form-label">Numero de habitantes</label>
+              <input type="number" class="form-control" min="1" />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
-                >Provincia</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="exampleInputPassword1"
-              />
+              <label class="form-label">Provincia</label>
+              <input type="text" class="form-control" />
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="button" class="btn btn-primary">Enviar</button>
           </form>
-<!--Añadir Habitantes-->
+          <!--Añadir Habitantes-->
           <form id="añadirHabitantes" style="display: none">
-            <legend><b>Nuevo Habitante</b> </legend>
+            <legend><b>Nuevo Habitante</b></legend>
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Nombre</label>
+              <label class="form-label">Nombre</label>
               <input
                 type="text"
                 class="form-control"
-                id="exampleInputEmail1"
                 aria-describedby="emailHelp"
               />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Edad</label>
-              <input
-                type="text"
-                class="form-control"
-                id="exampleInputPassword1"
-                min="1"
-              />
+              <label class="form-label">Edad</label>
+              <input type="number" class="form-control" min="1" />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label"
-                >Localidad</label
-              >
+              <label class="form-label">Localidad</label>
               <select class="form-select" aria-label="Default select example">
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+                <option selected>No hay Localidades</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button type="button" class="btn btn-primary">Enviar</button>
           </form>
         </div>
       </div>

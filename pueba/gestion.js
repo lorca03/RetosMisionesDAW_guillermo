@@ -20,28 +20,37 @@ class Tanque {
   }
 }
 
-const tanques = [];
-const habitantes = [];
-const localidades = [];
+var tanques = [];
+var habitantes = [];
+let localidades = [];
 const pantalla = document.getElementById("pantalla");
 
 function añadir(elemento) {
   pantalla.style.display = "block";
+  var formTanque = document.getElementById("añadirTanque");
+  var formLocalidad = document.getElementById("añadirLocalidad");
+  var formHabitante = document.getElementById("añadirHabitantes");
   switch (elemento.name) {
     case "tanque":
-      document.getElementById("añadirTanque").style.display = "block";
-      document.getElementById("añadirLocalidad").style.display = "none";
-      document.getElementById("añadirHabitantes").style.display = "none";
+      formTanque.style.display = "block";
+      formLocalidad.style.display = "none";
+      formHabitante.style.display = "none";
       break;
     case "localidad":
-      document.getElementById("añadirLocalidad").style.display = "block";
-      document.getElementById("añadirTanque").style.display = "none";
-      document.getElementById("añadirHabitantes").style.display = "none";
+      formLocalidad.style.display = "block";
+      formTanque.style.display = "none";
+      formHabitante.style.display = "none";
+      var boton = formLocalidad.querySelector("button");
+      boton.addEventListener("click", function () {
+        var inputs = formLocalidad.querySelectorAll(".form-control");
+        localidades.push(new Localidad(inputs[0].value,inputs[1].value,inputs[2].value));
+      });
+
       break;
     case "habitante":
-      document.getElementById("añadirLocalidad").style.display = "none";
-      document.getElementById("añadirTanque").style.display = "none";
-      document.getElementById("añadirHabitantes").style.display = "block";
+      formLocalidad.style.display = "none";
+      formTanque.style.display = "none";
+      formHabitante.style.display = "block";
       break;
   }
 }
@@ -70,6 +79,9 @@ function visualizar(elemento) {
     case "tanque":
       break;
     case "localidad":
+      localidades.forEach(element => {
+        alert(element.nombre);
+      });
       break;
     case "habitante":
       break;

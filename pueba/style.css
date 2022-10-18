@@ -33,8 +33,9 @@ h3 {
     border-bottom: 1px solid white;
     border-left: 1px solid white;
     border-right: 1px solid white;
+    height: 390px;
 }
-#columna{
+#columnaAñadir{
     padding: 20px;
     display: flex;  
     justify-content: center;

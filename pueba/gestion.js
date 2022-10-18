@@ -43,7 +43,9 @@ function añadir(elemento) {
       var boton = formLocalidad.querySelector("button");
       boton.addEventListener("click", function () {
         var inputs = formLocalidad.querySelectorAll(".form-control");
-        localidades.push(new Localidad(inputs[0].value,inputs[1].value,inputs[2].value));
+        localidades.push(
+          new Localidad(inputs[0].value, inputs[1].value, inputs[2].value)
+        );
       });
 
       break;
@@ -75,15 +77,36 @@ function modificar(elemento) {
   }
 }
 function visualizar(elemento) {
+  pantalla.style.display = "block";
   switch (elemento.name) {
     case "tanque":
+      if (tanques.length > 0) {
+        tanques.forEach((element) => {
+          columnaAñadir.textContent = element.nombre;
+        });
+      } else {
+        columnaAñadir.textContent = "No hay tanques";
+      }
       break;
     case "localidad":
-      localidades.forEach(element => {
-        alert(element.nombre);
-      });
+      if (localidades.length > 0) {
+        localidades.forEach((element) => {
+          columnaAñadir.textContent = element.nombre;
+        });
+      } else {
+        //texto.appendChild(document.createTextNode("No hay localidades"));
+        //pantalla.appendChild ='No hay localidades';
+      }
+
       break;
     case "habitante":
+      if (habitantes.length > 0) {
+        habitantes.forEach((element) => {
+          columnaAñadir.textContent = element.nombre;
+        });
+      } else {
+        columnaAñadir.textContent = "No hay habitantes";
+      }
       break;
   }
 }

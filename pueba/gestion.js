@@ -45,6 +45,7 @@ class Habitante {
         formHabitante.style.display = "none";
         var boton = formLocalidad.querySelector("button");
         boton.addEventListener("click", function () {
+          alert('aña')
           var inputs = formLocalidad.querySelectorAll(".form-control");
           localidades.push(new Localidad(inputs[0].value,inputs[1].value,inputs[2].value));
         });
@@ -80,15 +81,52 @@ class Habitante {
   function visualizar(elemento) {
     pantallaAñadir.style.display='none';
     pantallaVisualizar.style.display = "block";
+    const Tabla= pantallaVisualizar.querySelector('.table');
+    const header=Tabla.getElementsByTagName('thead');
+    const titulo=header[0].querySelectorAll('.tituloMostrar');
+    const body=Tabla.getElementsByTagName('tbody');
+    const filas=body[0].getElementById('filas');
     switch (elemento.name) {
       case "tanque":
+        titulo[0].textContent='Numero';
+        titulo[1].textContent='Capacidad';
+        titulo[2].textContent='Localidades';
+        /*var fila ='';
+        for (let index = 0; index < tanques.length; index++) {
+          fila += '<tr>'+
+                   '<th>'+index+'</th>'+
+                    '<th>'+tanques[index].nombre+'</th>'+
+                  '</tr>'
+        }
+        document.body.replaceChild(fila,filas);*/
         break;
       case "localidad":
-        localidades.forEach(element => {
-          alert(element.nombre);
-        });
+        titulo[0].textContent='Nombre';
+        titulo[1].textContent='Habitantes';
+        titulo[2].textContent='Provincia';
+        /*var fila ='';
+        for (let index = 0; index < localidades.length; index++) {
+          fila += '<tr>'+
+                   '<th>'+index+'</th>'+
+                    '<th>'+localidades[index].nombre+'</th>'+
+                  '</tr>'
+        }
+        alert(fila)
+        document.body.replaceChild(fila,filas);*/
+        
         break;
       case "habitante":
+        titulo[0].textContent='Nombre';
+        titulo[1].textContent='Edad';
+        titulo[2].textContent='Localidad';
+        /*var fila ='';
+        for (let index = 0; index < tanques.length; index++) {
+          fila += '<tr>'+
+                   '<th>'+index+'</th>'+
+                    '<th>'+tanques[index].nombre+'</th>'+
+                  '</tr>'
+        }
+        document.body.replaceChild(fila,filas);*/
         break;
     }
   }

@@ -79,6 +79,8 @@ body {
   .table {
     background-color: #3b4c3ad2;
     color: white;
+    width: 60%;
+    text-align: center;
   }
   .table tr:hover {
     background-color: #3b4c3ae8;

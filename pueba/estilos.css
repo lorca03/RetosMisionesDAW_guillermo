@@ -81,6 +81,11 @@ body {
     color: white;
     width: 60%;
     text-align: center;
+    
+  }
+  .mostrando{
+    color: #3b4c3a;
+    text-shadow:0px 1px 3px white;
   }
   .table tr:hover {
     background-color: #3b4c3ae8;

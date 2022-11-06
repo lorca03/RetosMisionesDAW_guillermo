@@ -29,7 +29,7 @@
           <h3>Tanques</h3>
           <button
             class="botones"
-            onclick="añadir(this)"
+            onclick="mostrarAñadir(this)"
             name="tanque"
             type="button"
           >
@@ -64,7 +64,7 @@
           <h3>Localidad</h3>
           <button
             class="botones"
-            onclick="añadir(this)"
+            onclick="mostrarAñadir(this)"
             name="localidad"
             type="button"
           >
@@ -99,7 +99,7 @@
           <h3>Habitante</h3>
           <button
             class="botones"
-            onclick="añadir(this)"
+            onclick="mostrarAñadir(this)"
             name="habitante"
             type="button"
           >
@@ -156,7 +156,7 @@
                 <option selected>No hay Localidades</option>
               </select>
             </div>
-            <button type="button" class="btn">Enviar</button>
+            <button type="button" class="btn" onclick="añadir(this)">Enviar</button>
           </form>
           <!--Añadir Localidad-->
           <form id="añadirLocalidad" style="display: none">
@@ -177,7 +177,7 @@
               <label class="form-label">Provincia</label>
               <input type="text" class="form-control" />
             </div>
-            <button type="button" class="btn btn-primary">Enviar</button>
+            <button type="button" class="btn btn-primary" onclick="añadir(this)">Enviar</button>
           </form>
           <!--Añadir Habitantes-->
           <form id="añadirHabitantes" style="display: none">
@@ -200,26 +200,23 @@
                 <option selected>No hay Localidades</option>
               </select>
             </div>
-            <button type="button" class="btn btn-primary">Enviar</button>
+            <button type="button" class="btn btn-primary" onclick="añadir(this)">Enviar</button>
           </form>
         </div>
       </div>
       <div class="row" id="pantallaVisualizar">
         <div class="col" id="columnaVisualizar">
           <table class="table">
+            <h2 class="mostrando"></h2>
             <thead>
               <tr>
+                <th class="tituloMostrar" scope="col">Numero</th>
                 <th class="tituloMostrar" scope="col">Nombre</th>
                 <th class="tituloMostrar" scope="col">Numero de habitantes</th>
                 <th class="tituloMostrar" scope="col">Provincia</th>
               </tr>
             </thead>
             <tbody>
-              <tr id="filas">
-                <th>No hay</th>
-                <th>No hay</th>
-                <th>No hay</th>
-               </tr>
             </tbody>
           </table>
         </div>

@@ -1,13 +1,9 @@
-import Localida from "./localidad.js";
 
-class Habitante {
+export class Habitante {
 
-    constructor(nombre,edad,Localidad) {
+    constructor(nombre,edad,Tanque) {
         this.nombre=nombre;
         this.edad=edad;
-        this.localidad=Localidad;
+        this.tanque=Tanque;
     }
 }
-
-adios=new Localidad("gdh","gthtr","trhr");
-alert(adios.nombre);

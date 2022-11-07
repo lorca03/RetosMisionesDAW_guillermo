@@ -5,11 +5,9 @@ export class ListaHabitantes {
 
    añadir(Habitante) {
     this.listaHabitantes.forEach(element => {
-        alert( element.tanque.numero);
-        alert( Habitante.tanque.numero);
-        if (element.nombre==Habitante.nombre && 
-            element.edad==Habitante.edad && 
-            element.tanque.numero==Habitante.tanque.numero) {
+        if (element.nombre===Habitante.nombre && 
+            element.edad===Habitante.edad && 
+            element.tanque===Habitante.tanque) {
             throw 'Este habitante ya existe'
         }
     });

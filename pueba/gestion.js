@@ -60,7 +60,7 @@ function mostrarAñadir(elemento) {
         var options = "";
         for (let index = 0; index < tanques.listaTanques.length; index++) {
           options +=
-            "<option>" + tanques.listaTanques[index].numero + "</option>";
+            "<option selected>" + tanques.listaTanques[index].numero + "</option>";
         }
         select.innerHTML = options;
       }
@@ -83,17 +83,22 @@ function añadir(objeto) {
         localidades.añadir(localidad);
         break;
       case "Habitantes":
+        if (tanques.listaTanques.length <= 0) {
+          throw 'No puedes crear un habitante sin antes crear un tanque'
+        }
         var inputs2 = formHabitante.querySelectorAll(".form-control");
-        var select2 = formHabitante.querySelectorAll(".form-select");
+        var select2 = formHabitante.querySelector(".form-select");
         const habitante = new Habitante(
           inputs2[0].value,
           inputs2[1].value,
-          select2[0][0].textContent
+          select2[select2.selectedIndex].textContent
         );
         habitantes.añadir(habitante);
-
         break;
       case "Tanque":
+        if (localidades.listaLocalidades.length <= 0) {
+          throw 'No puedes crear un tanque sin antes crear una localidad'
+        }
         var inputs3 = formTanque.querySelectorAll(".form-control");
         var select3 = formTanque.querySelectorAll(".form-select");
         const tanque = new Tanque(

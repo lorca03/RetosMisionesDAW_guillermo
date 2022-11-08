@@ -1,16 +1,43 @@
-
 export class ListaHabitantes {
+  listaHabitantes = [];
 
-    listaHabitantes=[];
-
-   añadir(Habitante) {
-    this.listaHabitantes.forEach(element => {
-        if (element.nombre===Habitante.nombre && 
-            element.edad===Habitante.edad && 
-            element.tanque===Habitante.tanque) {
-            throw 'Este habitante ya existe'
-        }
+  añadir(Habitante) {
+    this.listaHabitantes.forEach((element) => {
+      if (
+        element.nombre === Habitante.nombre &&
+        element.edad === Habitante.edad &&
+        element.tanque === Habitante.tanque
+      ) {
+        throw "Este habitante ya existe";
+      }
     });
-       this.listaHabitantes.push(Habitante);
-   }
+    this.listaHabitantes.push(Habitante);
+  }
+  eliminarHabitante(nombreHab) {
+    var listahabi2 = [];
+    this.listaHabitantes.forEach((element) => {
+      if (element.nombre != nombreHab) {
+        listahabi2.push(element);
+      }
+    });
+    this.listaHabitantes = listahabi2;
+  }
+  eliminarHabitanteTan(numTan) {
+    var listahabi2 = [];
+    this.listaHabitantes.forEach((element) => {
+      if (element.tanque != numTan) {
+        listahabi2.push(element);
+      }
+    });
+    this.listaHabitantes = listahabi2;
+  }
+  eliminarHabitanteLoc(tanquesEliminados) {
+    var listahabi2 = [];
+    this.listaHabitantes.forEach((element) => {
+            if (tanquesEliminados.includes(element.tanque)==false) {
+                listahabi2.push(element);
+            }
+    });
+    this.listaHabitantes = listahabi2;
+  }
 }

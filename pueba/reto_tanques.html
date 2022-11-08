@@ -37,7 +37,7 @@
           </button>
           <button
             class="botones"
-            onclick="eliminar(this)"
+            onclick="mostrarEliminar(this)"
             name="tanque"
             type="button"
           >
@@ -45,7 +45,7 @@
           </button>
           <button
             class="botones"
-            onclick="modificar(this)"
+            onclick="mostrarModificar(this)"
             name="tanque"
             type="button"
           >
@@ -72,7 +72,7 @@
           </button>
           <button
             class="botones"
-            onclick="eliminar(this)"
+            onclick="mostrarEliminar(this)"
             name="localidad"
             type="button"
           >
@@ -80,7 +80,7 @@
           </button>
           <button
             class="botones"
-            onclick="modificar(this)"
+            onclick="mostrarModificar(this)"
             name="localidad"
             type="button"
           >
@@ -107,7 +107,7 @@
           </button>
           <button
             class="botones"
-            onclick="eliminar(this)"
+            onclick="mostrarEliminar(this)"
             name="habitante"
             type="button"
           >
@@ -115,7 +115,7 @@
           </button>
           <button
             class="botones"
-            onclick="modificar(this)"
+            onclick="mostrarModificar(this)"
             name="habitante"
             type="button"
           >
@@ -136,7 +136,7 @@
         <div class="col" id="columnaAñadir">
           <!--Añadir tanque-->
           <form id="añadirTanque" style="display: none">
-            <legend><b>Nuevo Tanque</b></legend>
+            <h2>Nuevo Tanque</h2>
             <div class="mb-3">
               <label class="form-label">Número</label>
               <input
@@ -162,7 +162,7 @@
           </form>
           <!--Añadir Localidad-->
           <form id="añadirLocalidad" style="display: none">
-            <legend><b>Nueva Localidad</b></legend>
+            <h2>Nueva Localidad</h2>
             <div class="mb-3">
               <label class="form-label">Nombre</label>
               <input
@@ -189,7 +189,7 @@
           </form>
           <!--Añadir Habitantes-->
           <form id="añadirHabitantes" style="display: none">
-            <legend><b>Nuevo Habitante</b></legend>
+            <h2>Nuevo Habitante</h2>
             <div class="mb-3">
               <label class="form-label">Nombre</label>
               <input
@@ -223,8 +223,8 @@
           <table class="table">
             <h2 class="mostrando"></h2>
             <thead>
-              <tr>
-                <th class="tituloMostrar" scope="col">Numero</th>
+              <tr id="headTabla">
+                <th class="tituloMostrar" scope="col">#</th>
                 <th class="tituloMostrar" scope="col">Nombre</th>
                 <th class="tituloMostrar" scope="col">Numero de habitantes</th>
                 <th class="tituloMostrar" scope="col">Provincia</th>
@@ -232,6 +232,22 @@
             </thead>
             <tbody></tbody>
           </table>
+        </div>
+      </div>
+      <div class="row" id="pantallaEliminar">
+        <div class="col" id="columnaEliminar">
+          <h2 id="tituloEliminar"></h2>
+          <select id="selectEliminar">
+            <option >No hay Tanques</option>
+          </select>
+          <br>
+          <button type="button" onclick="eliminar()">Eliminar</button>
+        </div>
+      </div>
+      <div class="row" id="pantallaModificar">
+        <div class="col" id="columnaModificar">
+          <h2 id="tituloModificar"></h2>
+
         </div>
       </div>
     </div>

@@ -6,4 +6,13 @@ export class ListaLocalidades {
    añadir(Localidad) {
        this.listaLocalidades.push(Localidad);
    }
+   eliminarLocalidad(nombreLoc){
+    var listaLocalidades2=[]
+    this.listaLocalidades.forEach(element => {
+        if (element.nombre!=nombreLoc) {
+            listaLocalidades2.push(element);
+        }
+    });
+    this.listaLocalidades=listaLocalidades2;
+   }
 }

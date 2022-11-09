@@ -82,6 +82,7 @@ body {
   }
   
   .table {
+    font-size: 18px;
     background-color: #3b4c3ad2;
     color: white;
     width: 60%;
@@ -92,7 +93,7 @@ body {
     color: #3b4c3a;
     text-shadow:0px 1px 3px white;
   }
-  .table tr#headTabla{
+  tr.headTabla{
     background-color: #3b4c3ae8;
   }
   .table tr:hover {
@@ -129,6 +130,9 @@ body {
   /*modificar*/
   #pantallaModificar{
     display: none;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
 
   }
   #pantallaModificar select{
@@ -151,4 +155,32 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+  }
+  #TablaModificar input{
+    margin: 5px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 2px;
+    color: white;
+    padding-left: 5px;
+  }
+  #TablaModificar input:hover{
+    background-color: #3b4c3a;
+  }
+  #TablaModificar input:focus{
+    background-color: #3b4c3a;
+  }
+  #TablaModificar{
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    width: 60%;
+    background-color: #3b4c3ad2;
+  }
+  .headTablaMod{
+    background-color: #3b4c3a;
+  }
+  .tituloModificar{
+    padding: 5px;
   }

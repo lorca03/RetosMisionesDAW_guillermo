@@ -4,6 +4,11 @@ export class ListaLocalidades {
     listaLocalidades=[];
 
    añadir(Localidad) {
+    this.listaLocalidades.forEach(element => {
+        if (element.nombre==Localidad.nombre) {
+            throw 'Esta localidad ya existe'
+        }
+    });
        this.listaLocalidades.push(Localidad);
    }
    eliminarLocalidad(nombreLoc){

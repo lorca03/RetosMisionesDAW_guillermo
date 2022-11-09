@@ -13,8 +13,8 @@ const pantallaAñadir = document.getElementById("pantallaAñadir");
 const pantallaVisualizar = document.getElementById("pantallaVisualizar");
 const pantallaEliminar = document.getElementById("pantallaEliminar");
 const pantallaModificar = document.getElementById("pantallaModificar");
-const selecEliminar=document.getElementById('selectEliminar');
-const tituloEliminar = document.getElementById('tituloEliminar');
+const selecEliminar = document.getElementById("selectEliminar");
+const tituloEliminar = document.getElementById("tituloEliminar");
 var formTanque = document.getElementById("añadirTanque");
 var formLocalidad = document.getElementById("añadirLocalidad");
 var formHabitante = document.getElementById("añadirHabitantes");
@@ -26,7 +26,6 @@ window.visualizar = visualizar;
 window.añadir = añadir;
 window.eliminar = eliminar;
 
-
 function mostrarAñadir(elemento) {
   pantallaAñadir.style.display = "block";
   pantallaVisualizar.style.display = "none";
@@ -35,17 +34,20 @@ function mostrarAñadir(elemento) {
   switch (elemento.name) {
     case "tanque":
       const select1 = formTanque.querySelector(".form-select");
-        var options1 = "";
+      var options1 = "";
       if (localidades.listaLocalidades.length > 0) {
-        for (let index = 0;index < localidades.listaLocalidades.length;index++) {
+        for (
+          let index = 0;
+          index < localidades.listaLocalidades.length;
+          index++
+        ) {
           options1 +=
             "<option>" +
             localidades.listaLocalidades[index].nombre +
             "</option>";
         }
-      }else{
-        options1 =
-            "<option > No hay Localidades</option>";
+      } else {
+        options1 = "<option > No hay Localidades</option>";
       }
       select1.innerHTML = options1;
       formTanque.style.display = "block";
@@ -66,12 +68,12 @@ function mostrarAñadir(elemento) {
       if (tanques.listaTanques.length > 0) {
         for (let index = 0; index < tanques.listaTanques.length; index++) {
           options +=
-            "<option selected>" + tanques.listaTanques[index].numero + "</option>";
+            "<option selected>" +
+            tanques.listaTanques[index].numero +
+            "</option>";
         }
-        
-      }else{
-        options =
-            "<option > No hay tanques</option>";
+      } else {
+        options = "<option > No hay tanques</option>";
       }
       select.innerHTML = options;
       break;
@@ -92,7 +94,7 @@ function añadir(objeto) {
         break;
       case "Habitantes":
         if (tanques.listaTanques.length <= 0) {
-          throw 'No puedes crear un habitante sin antes crear un tanque'
+          throw "No puedes crear un habitante sin antes crear un tanque";
         }
         var inputs2 = formHabitante.querySelectorAll(".form-control");
         var select2 = formHabitante.querySelector(".form-select");
@@ -105,7 +107,7 @@ function añadir(objeto) {
         break;
       case "Tanque":
         if (localidades.listaLocalidades.length <= 0) {
-          throw 'No puedes crear un tanque sin antes crear una localidad'
+          throw "No puedes crear un tanque sin antes crear una localidad";
         }
         var inputs3 = formTanque.querySelectorAll(".form-control");
         var select3 = formTanque.querySelector(".form-select");
@@ -137,9 +139,8 @@ function mostrarEliminar(elemento) {
           options4 +=
             "<option >" + tanques.listaTanques[index].numero + "</option>";
         }
-      }else{
-        options4 =
-            "<option > No hay Tanques</option>";
+      } else {
+        options4 = "<option > No hay Tanques</option>";
       }
       selecEliminar.innerHTML = options4;
       break;
@@ -147,13 +148,18 @@ function mostrarEliminar(elemento) {
       tituloEliminar.textContent = "Localidades";
       var options = "";
       if (localidades.listaLocalidades.length > 0) {
-        for (let index = 0; index < localidades.listaLocalidades.length; index++) {
+        for (
+          let index = 0;
+          index < localidades.listaLocalidades.length;
+          index++
+        ) {
           options +=
-            "<option >" + localidades.listaLocalidades[index].nombre + "</option>";
+            "<option >" +
+            localidades.listaLocalidades[index].nombre +
+            "</option>";
         }
-      }else{
-        options =
-            "<option > No hay Localidades</option>";
+      } else {
+        options = "<option > No hay Localidades</option>";
       }
       selecEliminar.innerHTML = options;
       break;
@@ -161,65 +167,153 @@ function mostrarEliminar(elemento) {
       tituloEliminar.textContent = "Habitantes";
       var options = "";
       if (habitantes.listaHabitantes.length > 0) {
-        for (let index = 0; index < habitantes.listaHabitantes.length; index++) {
+        for (
+          let index = 0;
+          index < habitantes.listaHabitantes.length;
+          index++
+        ) {
           options +=
-            "<option >" + habitantes.listaHabitantes[index].nombre + "</option>";
+            "<option >" +
+            habitantes.listaHabitantes[index].nombre +
+            "</option>";
         }
-      }else{
-        options =
-            "<option > No hay Habitantes</option>";
+      } else {
+        options = "<option > No hay Habitantes</option>";
       }
       selecEliminar.innerHTML = options;
       break;
   }
 }
-function eliminar(){
+function eliminar() {
   switch (tituloEliminar.textContent) {
-    case 'Localidades':
-        if (localidades.listaLocalidades.length > 0) {
-          localidades.eliminarLocalidad( selecEliminar[selecEliminar.selectedIndex].textContent)
-          if (tanques.listaTanques.length > 0) {
-            var tanquesEliminados=tanques.eliminarTanqueLoc( selecEliminar[selecEliminar.selectedIndex].textContent)
-            if (habitantes.listaHabitantes.length > 0) {
-              habitantes.eliminarHabitanteLoc(tanquesEliminados)
-            }
+    case "Localidades":
+      if (localidades.listaLocalidades.length > 0) {
+        localidades.eliminarLocalidad(
+          selecEliminar[selecEliminar.selectedIndex].textContent
+        );
+        if (tanques.listaTanques.length > 0) {
+          var tanquesEliminados = tanques.eliminarTanqueLoc(
+            selecEliminar[selecEliminar.selectedIndex].textContent
+          );
+          if (habitantes.listaHabitantes.length > 0) {
+            habitantes.eliminarHabitanteLoc(tanquesEliminados);
           }
         }
+      }
       break;
-    case 'Tanques':
+    case "Tanques":
       if (tanques.listaTanques.length > 0) {
-        tanques.eliminarTanque( selecEliminar[selecEliminar.selectedIndex].textContent)
+        tanques.eliminarTanque(
+          selecEliminar[selecEliminar.selectedIndex].textContent
+        );
         if (habitantes.listaHabitantes.length > 0) {
-          habitantes.eliminarHabitanteTan( selecEliminar[selecEliminar.selectedIndex].textContent)
+          habitantes.eliminarHabitanteTan(
+            selecEliminar[selecEliminar.selectedIndex].textContent
+          );
         }
       }
 
-    break;
-    case 'Habitantes':
+      break;
+    case "Habitantes":
       if (habitantes.listaHabitantes.length > 0) {
-        habitantes.eliminarHabitante( selecEliminar[selecEliminar.selectedIndex].textContent)
+        habitantes.eliminarHabitante(
+          selecEliminar[selecEliminar.selectedIndex].textContent
+        );
       }
-    break;
+      break;
   }
   pantallaEliminar.style.display = "none";
 }
-
 
 function mostrarModificar(elemento) {
   pantallaAñadir.style.display = "none";
   pantallaEliminar.style.display = "none";
   pantallaVisualizar.style.display = "none";
   pantallaModificar.style.display = "block";
+  const Tabla = document.getElementById("TablaModificar");
+  const header = Tabla.querySelector(".headTablaMod");
+  const titulo = header.querySelectorAll(".tituloModificar");
+  const body = Tabla.getElementsByTagName("tbody");
   const h2 = document.getElementById("tituloModificar");
   switch (elemento.name) {
     case "tanque":
-      h2.textContent='Tanques'
+      h2.textContent = "Tanques";
+      titulo[1].textContent = "Numero";
+      titulo[2].textContent = "Capacidad";
+      titulo[3].textContent = "Localidades";
+      var filastanque = "";
+      for (let index = 0; index < tanques.listaTanques.length; index++) {
+        filastanque +=
+          "<tr>" +
+          "<th class='headTabla'> " +
+          (index + 1) +
+          "</th>" +
+          "<th>" +
+          "<input type='text' value='" +tanques.listaTanques[index].numero +"'>" +
+          "</th>" +
+          "<th>" +
+          "<input type='text' value='" +tanques.listaTanques[index].capacidad +"'>" +
+          "</th>" +
+          "<th>" +
+          "<input type='text' value='" +tanques.listaTanques[index].localidad +"'>" +
+          "</th>" +
+          "</tr>";
+      }
+      body[0].innerHTML = filastanque;
       break;
     case "localidad":
-      h2.textContent='Localidades'
+      h2.textContent = "Localidades";
+      titulo[1].textContent = "Nombre";
+      titulo[2].textContent = "Habitantes";
+      titulo[3].textContent = "Provincia";
+      var filaslocalidad = "";
+      for (
+        let index = 0;
+        index < localidades.listaLocalidades.length;
+        index++
+      ) {
+        filaslocalidad +=
+          "<tr>" +
+          "<th>" +
+          (index + 1) +
+          "</th>" +
+          "<th>" +
+          "<input type='text' value='" +localidades.listaLocalidades[index].nombre +"'>" +
+          "</th>" +
+          "<th>" +
+          "<input type='text' value='" +localidades.listaLocalidades[index].habitantes +"'>" +
+          "</th>" +
+          "<th>" +
+          "<input type='text' value='" +localidades.listaLocalidades[index].provincia +"'>" +
+          "</th>" +
+          "</tr>";
+      }
+      body[0].innerHTML = filaslocalidad;
       break;
     case "habitante":
-      h2.textContent='Habitantes'
+      h2.textContent = "Habitantes";
+      titulo[1].textContent = "Nombre";
+      titulo[2].textContent = "Edad";
+      titulo[3].textContent = "Tanque";
+      var filashabitnates = "";
+      for (let index = 0; index < habitantes.listaHabitantes.length; index++) {
+        filashabitnates +=
+          "<tr>" +
+          "<th>" +
+          (index + 1) +
+          "</th>" +
+          "<th> "+
+          "<input type='text' value='" +habitantes.listaHabitantes[index].nombre +"'>" +
+          "</th>" +
+          "<th> "+
+          " <input type='number' value='" +habitantes.listaHabitantes[index].edad +"'>" +
+          "</th>" +
+          "<th> "+
+          " <input type='number' value='" +habitantes.listaHabitantes[index].tanque +"'>" +
+          "</th>" +
+          "</tr>";
+      }
+      body[0].innerHTML = filashabitnates;
       break;
   }
 }
@@ -243,7 +337,7 @@ function visualizar(elemento) {
       for (let index = 0; index < tanques.listaTanques.length; index++) {
         filastanque +=
           "<tr>" +
-          "<th>" +
+          "<th class='headTabla'> " +
           (index + 1) +
           "</th>" +
           "<th>" +

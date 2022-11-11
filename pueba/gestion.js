@@ -25,6 +25,7 @@ window.mostrarModificar = mostrarModificar;
 window.visualizar = visualizar;
 window.añadir = añadir;
 window.eliminar = eliminar;
+window.modificar = modificar;
 
 function mostrarAñadir(elemento) {
   pantallaAñadir.style.display = "block";
@@ -241,6 +242,14 @@ function mostrarModificar(elemento) {
       titulo[1].textContent = "Numero";
       titulo[2].textContent = "Capacidad";
       titulo[3].textContent = "Localidades";
+      var options = "";
+      if (localidades.listaLocalidades.length > 0) {
+        for (let index = 0;index < localidades.listaLocalidades.length;index++) {
+           options +="<option >" +localidades.listaLocalidades[index].nombre +"</option>";
+        }
+      } else {
+        options = "<option > No hay Localidades</option>";
+      }
       var filastanque = "";
       for (let index = 0; index < tanques.listaTanques.length; index++) {
         filastanque +=
@@ -249,13 +258,18 @@ function mostrarModificar(elemento) {
           (index + 1) +
           "</th>" +
           "<th>" +
-          "<input type='text' value='" +tanques.listaTanques[index].numero +"'>" +
+          "<input type='text' value='" +
+          tanques.listaTanques[index].numero +
+          "'>" +
           "</th>" +
           "<th>" +
-          "<input type='text' value='" +tanques.listaTanques[index].capacidad +"'>" +
+          "<input type='text' value='" +
+          tanques.listaTanques[index].capacidad +
+          "'>" +
           "</th>" +
           "<th>" +
-          "<input type='text' value='" +tanques.listaTanques[index].localidad +"'>" +
+          "<select class='form-select' aria-label='Default select example'>"+options+
+          "</select>"+
           "</th>" +
           "</tr>";
       }
@@ -278,13 +292,19 @@ function mostrarModificar(elemento) {
           (index + 1) +
           "</th>" +
           "<th>" +
-          "<input type='text' value='" +localidades.listaLocalidades[index].nombre +"'>" +
+          "<input type='text' value='" +
+          localidades.listaLocalidades[index].nombre +
+          "'>" +
           "</th>" +
           "<th>" +
-          "<input type='text' value='" +localidades.listaLocalidades[index].habitantes +"'>" +
+          "<input type='text' value='" +
+          localidades.listaLocalidades[index].habitantes +
+          "'>" +
           "</th>" +
           "<th>" +
-          "<input type='text' value='" +localidades.listaLocalidades[index].provincia +"'>" +
+          "<input type='text' value='" +
+          localidades.listaLocalidades[index].provincia +
+          "'>" +
           "</th>" +
           "</tr>";
       }
@@ -295,6 +315,14 @@ function mostrarModificar(elemento) {
       titulo[1].textContent = "Nombre";
       titulo[2].textContent = "Edad";
       titulo[3].textContent = "Tanque";
+      var options = "";
+      if (tanques.listaTanques.length > 0) {
+        for (let index = 0;index < tanques.listaTanques.length;index++) {
+           options +="<option >" +tanques.listaTanques[index].numero +"</option>";
+        }
+      } else {
+        options = "<option > No hay Tanques</option>";
+      }
       var filashabitnates = "";
       for (let index = 0; index < habitantes.listaHabitantes.length; index++) {
         filashabitnates +=
@@ -302,14 +330,19 @@ function mostrarModificar(elemento) {
           "<th>" +
           (index + 1) +
           "</th>" +
-          "<th> "+
-          "<input type='text' value='" +habitantes.listaHabitantes[index].nombre +"'>" +
+          "<th> " +
+          "<input type='text' value='" +
+          habitantes.listaHabitantes[index].nombre +
+          "'>" +
           "</th>" +
-          "<th> "+
-          " <input type='number' value='" +habitantes.listaHabitantes[index].edad +"'>" +
+          "<th> " +
+          " <input type='number' min='1' value='" +
+          habitantes.listaHabitantes[index].edad +
+          "'>" +
           "</th>" +
-          "<th> "+
-          " <input type='number' value='" +habitantes.listaHabitantes[index].tanque +"'>" +
+          "<th> " +
+          "<select class='form-select' aria-label='Default select example'>"+options+
+          "</select>"+
           "</th>" +
           "</tr>";
       }
@@ -317,6 +350,40 @@ function mostrarModificar(elemento) {
       break;
   }
 }
+function modificar() {
+  const titulo = document.getElementById("tituloModificar").textContent;
+  const table = document.getElementById("TablaModificar");
+  const inputs= table.querySelectorAll('input');
+  const selectModificar= table.querySelector('select');
+  switch (titulo) {
+    case 'Localidades':
+      var contador=0;
+      for (let index = 0; index < inputs.length; index+=3) {
+        const datos=[inputs[index].value,inputs[index+1].value,inputs[index+2].value]
+        localidades.modificar(contador,datos)
+        contador++;
+      }
+      break;
+    case 'Tanques':
+      var contador=0;
+      for (let index = 0; index < inputs.length; index+=2) {
+        const datos=[inputs[index].value,inputs[index+1].value,selectModificar[selectModificar.selectedIndex].textContent]
+        tanques.modificar(contador,datos)
+        contador++;
+      }
+      break;
+    case 'Habitantes':
+      var contador=0;
+      for (let index = 0; index < inputs.length; index+=3) {
+        const datos=[inputs[index].value,inputs[index+1].value,selectModificar[selectModificar.selectedIndex].textContent]
+        habitantes.modificar(contador,datos)
+        contador++;
+      }
+      break;
+  }
+  pantallaModificar.style.display = "none";
+}
+
 function visualizar(elemento) {
   pantallaAñadir.style.display = "none";
   pantallaEliminar.style.display = "none";
@@ -384,7 +451,7 @@ function visualizar(elemento) {
 
       break;
     case "habitante":
-      h2.textContent = "Habitentes";
+      h2.textContent = "Habitantes";
       titulo[1].textContent = "Nombre";
       titulo[2].textContent = "Edad";
       titulo[3].textContent = "Tanque";

@@ -33,4 +33,9 @@ export class ListaTanques {
         this.listaTanques=listaTanques2;
         return tanquesEliminados;
     }
+    modificar(conatador,datos){
+        this.listaTanques[conatador].numero=datos[0]
+        this.listaTanques[conatador].capacidad=datos[1]
+        this.listaTanques[conatador].localidad=datos[2]
+       }
 }

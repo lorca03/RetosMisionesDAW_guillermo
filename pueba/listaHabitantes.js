@@ -40,4 +40,9 @@ export class ListaHabitantes {
     });
     this.listaHabitantes = listahabi2;
   }
+  modificar(conatador,datos){
+    this.listaHabitantes[conatador].nombre=datos[0]
+    this.listaHabitantes[conatador].edad=datos[1]
+    this.listaHabitantes[conatador].tanque=datos[2]
+   }
 }

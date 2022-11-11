@@ -161,14 +161,23 @@ body {
     background-color: transparent;
     border-radius: 5px;
     border: 1px solid white;
-    padding: 2px;
+    padding: 8px;
     color: white;
     padding-left: 5px;
   }
-  #TablaModificar input:hover{
+  #TablaModificar select{
+    width: 150px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 8px;
+    color: white;
+    margin-left: 30px;
+  }
+  #TablaModificar input:hover,#TablaModificar select:hover{
     background-color: #3b4c3a;
   }
-  #TablaModificar input:focus{
+  #TablaModificar input:focus,#TablaModificar select:focus{
     background-color: #3b4c3a;
   }
   #TablaModificar{
@@ -182,5 +191,5 @@ body {
     background-color: #3b4c3a;
   }
   .tituloModificar{
-    padding: 5px;
+    padding: 8px;
   }

@@ -20,4 +20,10 @@ export class ListaLocalidades {
     });
     this.listaLocalidades=listaLocalidades2;
    }
+   modificar(conatador,datos){
+    this.listaLocalidades[conatador].nombre=datos[0]
+    this.listaLocalidades[conatador].habitantes=datos[1]
+    this.listaLocalidades[conatador].provincia=datos[2]
+   }
+
 }

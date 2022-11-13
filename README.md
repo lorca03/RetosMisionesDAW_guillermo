@@ -1,8 +1,8 @@
 # RetosMisionesDAW_guillermo
 Esta pagina es un gestor de datos(Tanques de agua, Habitantes,Localidades).En este gestor puedes crear, eliminar, modificar y visualizar los tres tipos de datos.Este proyecto se basa en un ejercicio de la pagina [aprende a programar](https://aprendeaprogramar.org/moodle/)
 ## Estilos 🎨 
-* 1. Fuente *Roboto Condensed*
-* 2. Paleta de colores 
+* Fuente *Roboto Condensed*
+* Paleta de colores 
   * #3b4c3a
   * #fff
 ## Imagenes 📷

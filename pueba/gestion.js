@@ -242,16 +242,16 @@ function mostrarModificar(elemento) {
       titulo[1].textContent = "Numero";
       titulo[2].textContent = "Capacidad";
       titulo[3].textContent = "Localidades";
-      var options = "";
-      if (localidades.listaLocalidades.length > 0) {
-        for (let index = 0;index < localidades.listaLocalidades.length;index++) {
-           options +="<option >" +localidades.listaLocalidades[index].nombre +"</option>";
-        }
-      } else {
-        options = "<option > No hay Localidades</option>";
-      }
       var filastanque = "";
       for (let index = 0; index < tanques.listaTanques.length; index++) {
+        var options = "";
+        for (let index2 = 0; index2 < localidades.listaLocalidades.length; index2++) {
+          if (localidades.listaLocalidades[index2].nombre===tanques.listaTanques[index].localidad) {
+            options +="<option selected>" +localidades.listaLocalidades[index2].nombre +"</option>";
+          }else{
+            options +="<option >" +localidades.listaLocalidades[index2].nombre +"</option>";
+          }
+        }
         filastanque +=
           "<tr>" +
           "<th class='headTabla'> " +
@@ -315,16 +315,16 @@ function mostrarModificar(elemento) {
       titulo[1].textContent = "Nombre";
       titulo[2].textContent = "Edad";
       titulo[3].textContent = "Tanque";
-      var options = "";
-      if (tanques.listaTanques.length > 0) {
-        for (let index = 0;index < tanques.listaTanques.length;index++) {
-           options +="<option >" +tanques.listaTanques[index].numero +"</option>";
-        }
-      } else {
-        options = "<option > No hay Tanques</option>";
-      }
       var filashabitnates = "";
       for (let index = 0; index < habitantes.listaHabitantes.length; index++) {
+        var options = "";
+        for (let index2 = 0; index2 < tanques.listaTanques.length; index2++) {
+          if (tanques.listaTanques[index2].numero===habitantes.listaHabitantes[index].tanque) {
+            options +="<option selected>" +tanques.listaTanques[index2].numero +"</option>";
+          }else{
+            options +="<option >" +tanques.listaTanques[index2].numero +"</option>";
+          }
+        }
         filashabitnates +=
           "<tr>" +
           "<th>" +
@@ -354,33 +354,47 @@ function modificar() {
   const titulo = document.getElementById("tituloModificar").textContent;
   const table = document.getElementById("TablaModificar");
   const inputs= table.querySelectorAll('input');
-  const selectModificar= table.querySelector('select');
-  switch (titulo) {
-    case 'Localidades':
-      var contador=0;
-      for (let index = 0; index < inputs.length; index+=3) {
-        const datos=[inputs[index].value,inputs[index+1].value,inputs[index+2].value]
-        localidades.modificar(contador,datos)
-        contador++;
-      }
-      break;
-    case 'Tanques':
-      var contador=0;
-      for (let index = 0; index < inputs.length; index+=2) {
-        const datos=[inputs[index].value,inputs[index+1].value,selectModificar[selectModificar.selectedIndex].textContent]
-        tanques.modificar(contador,datos)
-        contador++;
-      }
-      break;
-    case 'Habitantes':
-      var contador=0;
-      for (let index = 0; index < inputs.length; index+=3) {
-        const datos=[inputs[index].value,inputs[index+1].value,selectModificar[selectModificar.selectedIndex].textContent]
-        habitantes.modificar(contador,datos)
-        contador++;
-      }
-      break;
+  const selectModificar= table.querySelectorAll('select');
+  try {
+    switch (titulo) {
+      case 'Localidades':
+        var contador=0;
+        for (let index = 0; index < inputs.length; index+=3) {
+          if (inputs[index].value=='') {
+            throw 'No puedes borrar el nombre de una localidad'
+          }
+          const datos=[inputs[index].value,inputs[index+1].value,inputs[index+2].value]
+          localidades.modificar(contador,datos)
+          contador++;
+        }
+        break;
+      case 'Tanques':
+        var contador=0;
+        for (let index = 0; index < inputs.length; index+=2) {
+          if (inputs[index].value=='') {
+            throw 'No puedes borrar el numero de un tanque'
+          }
+          const datos=[inputs[index].value,inputs[index+1].value,selectModificar[contador][selectModificar[contador].selectedIndex].textContent]
+          tanques.modificar(contador,datos)
+          contador++;
+        }
+        break;
+      case 'Habitantes':
+        var contador=0;
+        for (let index = 0; index < inputs.length; index+=2) {
+          if (inputs[index].value=='') {
+            throw 'No puedes borrar el nombre de un habitante'
+          }
+          const datos=[inputs[index].value,inputs[index+1].value,selectModificar[contador][selectModificar[contador].selectedIndex].textContent]
+          habitantes.modificar(contador,datos)
+          contador++;
+        }
+        break;
+    }
+  } catch (error) {
+    alert(error)
   }
+  
   pantallaModificar.style.display = "none";
 }
 

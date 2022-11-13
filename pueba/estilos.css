@@ -1,16 +1,19 @@
 body {
-    background-image: url(fondo.jpg);
+    background-image: url(kenia.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    font-family: 'Roboto Condensed', sans-serif;
   }
   button:hover{
     box-shadow: 0px 3px 4px #3b4c3a;
   }
   #titulo {
-    color: #3b4c3ae1;
+    color: #3b4c3ae8;
     text-align: center;
+    font-size: 50px;
+    text-shadow:0px 1px 3px white;
   }
   .col {
     display: flex;
@@ -20,7 +23,11 @@ body {
     border: 1px solid white;
   }
   h3 {
-    color: #3b4c3ae1;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    color: #3b4c3a;
+    font-size: 40px;
+    text-shadow:0px 1px 3px white;
   }
   .btn{
     background-color: #3b4c3aea;
@@ -35,11 +42,14 @@ body {
   
   .botones {
     margin-bottom: 15px;
-    background-color: transparent;
     background-color: #3b4c3ae1;
     border: 1px solid white;
     color: white;
-    border-radius: 5px;
+    padding: 2%;
+    font-size: 20px;
+    padding-left: 3%;
+    padding-right: 3%;
+    border-radius: 10px;
   }
   /*añadir*/
   #pantallaAñadir {
@@ -54,14 +64,15 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    font-size: 25px;
   }
   form {
     color: white;
+    text-shadow:0px 3px 3px #3b4c3a;
   }
   h2 {
     color: #3b4c3a;
-    font-size: 30px;
-    
+    font-size: 35px;
     text-shadow:0px 1px 3px white;
   }
   /*visualizar*/
@@ -74,7 +85,6 @@ body {
   
   #columnaVisualizar {
     padding: 20px;
-  
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -87,7 +97,6 @@ body {
     color: white;
     width: 60%;
     text-align: center;
-    border-radius: 5px;
   }
   .mostrando{
     color: #3b4c3a;
@@ -117,7 +126,6 @@ body {
     background-color: #3b4c3a;
     color: white;
     padding: 7px;
-    
   }
   #columnaEliminar {
     padding: 20px;
@@ -135,50 +143,12 @@ body {
     border-right: 1px solid white;
 
   }
-  #pantallaModificar select{
-    background-color: #3b4c3a;
-    color: white;
-    padding: 5px;
-    
-  }
-  #pantallaModificar button{
-    border: 1px solid white;
-    border-radius: 5px;
-    background-color: #3b4c3a;
-    color: white;
-    padding: 7px;
-    
-  }
   #columnaModificar {
     padding: 20px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-  }
-  #TablaModificar input{
-    margin: 5px;
-    background-color: transparent;
-    border-radius: 5px;
-    border: 1px solid white;
-    padding: 8px;
-    color: white;
-    padding-left: 5px;
-  }
-  #TablaModificar select{
-    width: 150px;
-    background-color: transparent;
-    border-radius: 5px;
-    border: 1px solid white;
-    padding: 8px;
-    color: white;
-    margin-left: 30px;
-  }
-  #TablaModificar input:hover,#TablaModificar select:hover{
-    background-color: #3b4c3a;
-  }
-  #TablaModificar input:focus,#TablaModificar select:focus{
-    background-color: #3b4c3a;
   }
   #TablaModificar{
     font-size: 18px;
@@ -187,9 +157,44 @@ body {
     width: 60%;
     background-color: #3b4c3ad2;
   }
+  #TablaModificar .form-select{
+    width: 90%;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 6%;
+    color: white;
+    margin-left: 5%;
+  }
+  #pantallaModificar button{
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #3b4c3a;
+    color: white;
+    padding: 7px;
+  }
+  #TablaModificar input{
+    width: 65%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid white;
+    padding: 8px;
+    color: white;
+    padding-left: 5px;
+  }
+  
+  #TablaModificar input:hover,#TablaModificar select:hover{
+    background-color: #3b4c3a;
+  }
+  #TablaModificar input:focus,#TablaModificar select:focus{
+    background-color: #3b4c3a;
+  }
   .headTablaMod{
     background-color: #3b4c3a;
   }
   .tituloModificar{
     padding: 8px;
   }
+  

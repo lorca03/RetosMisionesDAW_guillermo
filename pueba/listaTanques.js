@@ -34,6 +34,11 @@ export class ListaTanques {
         return tanquesEliminados;
     }
     modificar(conatador,datos){
+        for (let index = 0; index <  this.listaTanques.length; index++) {
+            if (this.listaTanques[index].numero==datos[0] && index!=conatador) {
+                throw 'Este tanque ya existe'
+            }
+        }
         this.listaTanques[conatador].numero=datos[0]
         this.listaTanques[conatador].capacidad=datos[1]
         this.listaTanques[conatador].localidad=datos[2]

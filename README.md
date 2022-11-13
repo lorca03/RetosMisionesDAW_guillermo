@@ -3,8 +3,8 @@ Esta pagina es un gestor de datos(Tanques de agua, Habitantes,Localidades).En es
 ## Estilos 🎨 
 1. Fuente *Roboto Condensed*
 2. Paleta de colores 
-  *#3b4c3a
-  *#fff
+  * #3b4c3a
+  * #fff
 ## Imagenes 📷
 [Fondo de pantalla](pueba/kenia.jpg)
 ## Construido con 🛠️
@@ -38,5 +38,5 @@ Por tanto elegid la estructura de objetos más adecuada para su correcto almacen
       * ListaTanque
       * ListaLocalidad
       * ListaHabitante
-    * Por ultimo esta el archivo gestion, el cual se encarga de cambiar lo que se ve al dar a los botones en el html. Y tambien llamar a las distintas listas y               decirles lod que debn hacer, basicamente es el centro neuralgico del programa.
+    * Por ultimo esta el archivo gestion, el cual se encarga de cambiar lo que se ve al dar a los botones en el html. Tambien llama a las distintas listas y               les dice lo que deben hacer, basicamente es el centro neuralgico del programa.
     

@@ -50,4 +50,16 @@ export class ListaHabitantes {
     this.listaHabitantes[conatador].edad = datos[1]
     this.listaHabitantes[conatador].tanque = datos[2]
   }
+  modificarTan(tanques) {
+    tanques=tanques.split('/')
+    tanques.forEach(element => {
+        for (let index = 0; index < this.listaHabitantes.length; index++) {
+            if (this.listaHabitantes[index].tanque==element.substr(0,element.indexOf('.'))) {
+                this.listaHabitantes[index].tanque=element.substr(element.indexOf('.')+1)
+            }
+               
+        }
+    });
+    
+}
 }

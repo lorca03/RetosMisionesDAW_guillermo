@@ -41,5 +41,17 @@ export class ListaTanques {
         this.listaTanques[conatador].numero = datos[0]
         this.listaTanques[conatador].capacidad = datos[1]
         this.listaTanques[conatador].localidad = datos[2]
+    } 
+    modificarLoc(localidades) {
+        localidades=localidades.split('/')
+        localidades.forEach(element => {
+            for (let index = 0; index < this.listaTanques.length; index++) {
+                if (this.listaTanques[index].localidad==element.substr(0,element.indexOf('.'))) {
+                    this.listaTanques[index].localidad=element.substr(element.indexOf('.')+1)
+                }
+                   
+            }
+        });
+        
     }
 }

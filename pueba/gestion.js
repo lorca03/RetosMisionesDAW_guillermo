@@ -185,6 +185,7 @@ function mostrarEliminar(elemento) {
       break;
   }
 }
+
 function eliminar() {
   switch (tituloEliminar.textContent) {
     case "Localidades":
@@ -245,11 +246,24 @@ function mostrarModificar(elemento) {
       var filastanque = "";
       for (let index = 0; index < tanques.listaTanques.length; index++) {
         var options = "";
-        for (let index2 = 0; index2 < localidades.listaLocalidades.length; index2++) {
-          if (localidades.listaLocalidades[index2].nombre===tanques.listaTanques[index].localidad) {
-            options +="<option selected>" +localidades.listaLocalidades[index2].nombre +"</option>";
-          }else{
-            options +="<option >" +localidades.listaLocalidades[index2].nombre +"</option>";
+        for (
+          let index2 = 0;
+          index2 < localidades.listaLocalidades.length;
+          index2++
+        ) {
+          if (
+            localidades.listaLocalidades[index2].nombre ===
+            tanques.listaTanques[index].localidad
+          ) {
+            options +=
+              "<option selected>" +
+              localidades.listaLocalidades[index2].nombre +
+              "</option>";
+          } else {
+            options +=
+              "<option >" +
+              localidades.listaLocalidades[index2].nombre +
+              "</option>";
           }
         }
         filastanque +=
@@ -268,8 +282,9 @@ function mostrarModificar(elemento) {
           "'>" +
           "</th>" +
           "<th>" +
-          "<select class='form-select' aria-label='Default select example'>"+options+
-          "</select>"+
+          "<select class='form-select' aria-label='Default select example'>" +
+          options +
+          "</select>" +
           "</th>" +
           "</tr>";
       }
@@ -319,10 +334,17 @@ function mostrarModificar(elemento) {
       for (let index = 0; index < habitantes.listaHabitantes.length; index++) {
         var options = "";
         for (let index2 = 0; index2 < tanques.listaTanques.length; index2++) {
-          if (tanques.listaTanques[index2].numero===habitantes.listaHabitantes[index].tanque) {
-            options +="<option selected>" +tanques.listaTanques[index2].numero +"</option>";
-          }else{
-            options +="<option >" +tanques.listaTanques[index2].numero +"</option>";
+          if (
+            tanques.listaTanques[index2].numero ===
+            habitantes.listaHabitantes[index].tanque
+          ) {
+            options +=
+              "<option selected>" +
+              tanques.listaTanques[index2].numero +
+              "</option>";
+          } else {
+            options +=
+              "<option >" + tanques.listaTanques[index2].numero + "</option>";
           }
         }
         filashabitnates +=
@@ -341,8 +363,9 @@ function mostrarModificar(elemento) {
           "'>" +
           "</th>" +
           "<th> " +
-          "<select class='form-select' aria-label='Default select example'>"+options+
-          "</select>"+
+          "<select class='form-select' aria-label='Default select example'>" +
+          options +
+          "</select>" +
           "</th>" +
           "</tr>";
       }
@@ -350,51 +373,64 @@ function mostrarModificar(elemento) {
       break;
   }
 }
+
 function modificar() {
   const titulo = document.getElementById("tituloModificar").textContent;
   const table = document.getElementById("TablaModificar");
-  const inputs= table.querySelectorAll('input');
-  const selectModificar= table.querySelectorAll('select');
+  const inputs = table.querySelectorAll("input");
+  const selectModificar = table.querySelectorAll("select");
   try {
     switch (titulo) {
-      case 'Localidades':
-        var contador=0;
-        for (let index = 0; index < inputs.length; index+=3) {
-          if (inputs[index].value=='') {
-            throw 'No puedes borrar el nombre de una localidad'
+      case "Localidades":
+        var contador = 0;
+        var localidadesNuevas=''
+        for (let index = 0; index < inputs.length; index += 3) {
+          if (inputs[index].value == "") {
+            throw "No puedes borrar el nombre de una localidad";
           }
-          const datos=[inputs[index].value,inputs[index+1].value,inputs[index+2].value]
-          localidades.modificar(contador,datos)
+          const datos = [ inputs[index].value, inputs[index + 1].value, inputs[index + 2].value,];
+          localidadesNuevas+=localidades.listaLocalidades[contador].nombre+'.'+inputs[index].value+'/'
+          localidades.modificar(contador, datos);
           contador++;
         }
+        tanques.modificarLoc(localidadesNuevas)
         break;
-      case 'Tanques':
-        var contador=0;
-        for (let index = 0; index < inputs.length; index+=2) {
-          if (inputs[index].value=='') {
-            throw 'No puedes borrar el numero de un tanque'
+      case "Tanques":
+        var contador = 0;
+        var tanquesNuevos=''
+        for (let index = 0; index < inputs.length; index += 2) {
+          if (inputs[index].value == "") {
+            throw "No puedes borrar el numero de un tanque";
           }
-          const datos=[inputs[index].value,inputs[index+1].value,selectModificar[contador][selectModificar[contador].selectedIndex].textContent]
-          tanques.modificar(contador,datos)
+          const datos = [inputs[index].value,inputs[index + 1].value,selectModificar[contador][selectModificar[contador].selectedIndex].textContent,];
+          tanquesNuevos+=tanques.listaTanques[contador].numero+'.'+inputs[index].value+'/'
+          tanques.modificar(contador, datos);
           contador++;
         }
+        habitantes.modificarTan(tanquesNuevos)
         break;
-      case 'Habitantes':
-        var contador=0;
-        for (let index = 0; index < inputs.length; index+=2) {
-          if (inputs[index].value=='') {
-            throw 'No puedes borrar el nombre de un habitante'
+      case "Habitantes":
+        var contador = 0;
+        
+        for (let index = 0; index < inputs.length; index += 2) {
+          if (inputs[index].value == "") {
+            throw "No puedes borrar el nombre de un habitante";
           }
-          const datos=[inputs[index].value,inputs[index+1].value,selectModificar[contador][selectModificar[contador].selectedIndex].textContent]
-          habitantes.modificar(contador,datos)
+          const datos = [
+            inputs[index].value,
+            inputs[index + 1].value,
+            selectModificar[contador][selectModificar[contador].selectedIndex]
+              .textContent,
+          ];
+          habitantes.modificar(contador, datos);
           contador++;
         }
         break;
     }
   } catch (error) {
-    alert(error)
+    alert(error);
   }
-  
+
   pantallaModificar.style.display = "none";
 }
 
